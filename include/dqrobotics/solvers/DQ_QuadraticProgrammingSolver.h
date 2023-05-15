@@ -25,8 +25,6 @@ Contributors:
 
 #include <dqrobotics/DQ.h>
 
-using namespace Eigen;
-
 namespace DQ_robotics
 {
 class DQ_QuadraticProgrammingSolver
@@ -36,7 +34,7 @@ protected:
 public:
     virtual ~DQ_QuadraticProgrammingSolver() = default;
 
-    virtual VectorXd solve_quadratic_program(const MatrixXd& H, const MatrixXd& f, const MatrixXd A, const MatrixXd& b, const MatrixXd& Aeq, const MatrixXd& beq)=0;
+    virtual Eigen::VectorXd solve_quadratic_program(const Eigen::MatrixXd& H, const Eigen::MatrixXd& f, const Eigen::MatrixXd A, const Eigen::MatrixXd& b, const Eigen::MatrixXd& Aeq, const Eigen::MatrixXd& beq)=0;
 };
 }
 

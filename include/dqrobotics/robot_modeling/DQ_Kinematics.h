@@ -35,11 +35,11 @@ protected:
     DQ reference_frame_;
     DQ base_frame_;
 
-    VectorXd q_;
+    Eigen::VectorXd q_;
     int dim_configuration_space_;
 
     void _check_to_ith_link(const int& to_ith_link) const;
-    void _check_q_vec(const VectorXd& q_vec) const;
+    void _check_q_vec(const Eigen::VectorXd& q_vec) const;
 
     //Constructor
     DQ_Kinematics();
@@ -56,33 +56,33 @@ public:
     std::string get_name() const;
 
     //PURE virtual methods
-    virtual DQ fkm                (const VectorXd& joint_configurations) const = 0;
-    virtual DQ fkm                (const VectorXd& joint_configurations, const int& to_ith_link) const = 0;
-    virtual MatrixXd pose_jacobian(const VectorXd& joint_configurations, const int& to_ith_link) const = 0;
+    virtual DQ fkm                (const Eigen::VectorXd& joint_configurations) const = 0;
+    virtual DQ fkm                (const Eigen::VectorXd& joint_configurations, const int& to_ith_link) const = 0;
+    virtual Eigen::MatrixXd pose_jacobian(const Eigen::VectorXd& joint_configurations, const int& to_ith_link) const = 0;
     //Virtual methods
-    virtual MatrixXd pose_jacobian (const VectorXd& joint_configurations) const;
+    virtual Eigen::MatrixXd pose_jacobian (const Eigen::VectorXd& joint_configurations) const;
     virtual int get_dim_configuration_space() const;
 
     //Static methods
-    static MatrixXd distance_jacobian    (const MatrixXd& pose_jacobian, const DQ& pose);
-    static MatrixXd translation_jacobian (const MatrixXd& pose_jacobian, const DQ& pose);
-    static MatrixXd rotation_jacobian    (const MatrixXd& pose_jacobian);
-    static MatrixXd line_jacobian        (const MatrixXd& pose_jacobian, const DQ& pose, const DQ& line_direction);
-    static MatrixXd plane_jacobian       (const MatrixXd& pose_jacobian, const DQ& pose, const DQ& plane_normal);
+    static Eigen::MatrixXd distance_jacobian    (const Eigen::MatrixXd& pose_jacobian, const DQ& pose);
+    static Eigen::MatrixXd translation_jacobian (const Eigen::MatrixXd& pose_jacobian, const DQ& pose);
+    static Eigen::MatrixXd rotation_jacobian    (const Eigen::MatrixXd& pose_jacobian);
+    static Eigen::MatrixXd line_jacobian        (const Eigen::MatrixXd& pose_jacobian, const DQ& pose, const DQ& line_direction);
+    static Eigen::MatrixXd plane_jacobian       (const Eigen::MatrixXd& pose_jacobian, const DQ& pose, const DQ& plane_normal);
 
-    static MatrixXd point_to_point_distance_jacobian(const MatrixXd& translation_jacobian, const DQ& robot_point, const DQ& workspace_point);
+    static Eigen::MatrixXd point_to_point_distance_jacobian(const Eigen::MatrixXd& translation_jacobian, const DQ& robot_point, const DQ& workspace_point);
     static double   point_to_point_residual         (const DQ& robot_point, const DQ& workspace_point, const DQ& workspace_point_derivative);
-    static MatrixXd point_to_line_distance_jacobian (const MatrixXd& translation_jacobian, const DQ& robot_point, const DQ& workspace_line);
+    static Eigen::MatrixXd point_to_line_distance_jacobian (const Eigen::MatrixXd& translation_jacobian, const DQ& robot_point, const DQ& workspace_line);
     static double   point_to_line_residual          (const DQ& robot_point, const DQ& workspace_line, const DQ& workspace_line_derivative);
-    static MatrixXd point_to_plane_distance_jacobian(const MatrixXd& translation_jacobian, const DQ& robot_point, const DQ& workspace_plane);
+    static Eigen::MatrixXd point_to_plane_distance_jacobian(const Eigen::MatrixXd& translation_jacobian, const DQ& robot_point, const DQ& workspace_plane);
     static double   point_to_plane_residual         (const DQ& translation, const DQ& plane_derivative);
-    static MatrixXd line_to_point_distance_jacobian (const MatrixXd& line_jacobian, const DQ& robot_line, const DQ& workspace_point);
+    static Eigen::MatrixXd line_to_point_distance_jacobian (const Eigen::MatrixXd& line_jacobian, const DQ& robot_line, const DQ& workspace_point);
     static double   line_to_point_residual          (const DQ& robot_line, const DQ& workspace_point, const DQ& workspace_point_derivative);
-    static MatrixXd line_to_line_distance_jacobian  (const MatrixXd& line_jacobian, const DQ& robot_line, const DQ& workspace_line);
+    static Eigen::MatrixXd line_to_line_distance_jacobian  (const Eigen::MatrixXd& line_jacobian, const DQ& robot_line, const DQ& workspace_line);
     static double   line_to_line_residual           (const DQ& robot_line, const DQ& workspace_line, const DQ& workspace_line_derivative);
-    static MatrixXd plane_to_point_distance_jacobian(const MatrixXd& plane_jacobian, const DQ& workspace_point);
+    static Eigen::MatrixXd plane_to_point_distance_jacobian(const Eigen::MatrixXd& plane_jacobian, const DQ& workspace_point);
     static double   plane_to_point_residual         (const DQ& robot_plane, const DQ& workspace_point_derivative);
-    static MatrixXd line_to_line_angle_jacobian     (const MatrixXd& line_jacobian, const DQ& robot_line, const DQ& workspace_line);
+    static Eigen::MatrixXd line_to_line_angle_jacobian     (const Eigen::MatrixXd& line_jacobian, const DQ& robot_line, const DQ& workspace_line);
 };
 }
 

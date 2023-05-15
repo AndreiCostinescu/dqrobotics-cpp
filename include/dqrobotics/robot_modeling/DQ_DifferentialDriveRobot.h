@@ -37,10 +37,10 @@ protected:
 public:
     DQ_DifferentialDriveRobot(const double& wheel_radius, const double& distance_between_wheels);
 
-    MatrixXd constraint_jacobian(const double& phi) const;
+    Eigen::MatrixXd constraint_jacobian(const double& phi) const;
 
-    MatrixXd pose_jacobian(const VectorXd& q, const int& to_link) const override;
-    MatrixXd pose_jacobian(const VectorXd &q) const override;
+    Eigen::MatrixXd pose_jacobian(const Eigen::VectorXd& q, const int& to_link) const override;
+    Eigen::MatrixXd pose_jacobian(const Eigen::VectorXd &q) const override;
 };
 
 }

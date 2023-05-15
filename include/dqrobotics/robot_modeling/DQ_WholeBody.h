@@ -43,18 +43,18 @@ public:
     DQ_WholeBody(std::shared_ptr<DQ_Kinematics> robot);
 
     void add(std::shared_ptr<DQ_Kinematics> robot);
-    DQ raw_fkm(const VectorXd& q, const int& to_ith_chain) const;
-    DQ raw_fkm(const VectorXd& q) const;
+    DQ raw_fkm(const Eigen::VectorXd& q, const int& to_ith_chain) const;
+    DQ raw_fkm(const Eigen::VectorXd& q) const;
     void set_effector(const DQ& effector);
     DQ_Kinematics* get_chain(const int& to_ith_chain);
     DQ_SerialManipulator get_chain_as_serial_manipulator(const int& to_ith_chain) const;
     DQ_HolonomicBase get_chain_as_holonomic_base(const int& to_ith_chain) const;
 
     //Abstract methods' implementation
-    DQ fkm(const VectorXd& q) const override;
-    DQ fkm(const VectorXd&, const int& to_chain) const override;
-    MatrixXd pose_jacobian(const VectorXd& q, const int& to_ith_chain) const override;
-    MatrixXd pose_jacobian(const VectorXd& q) const override;
+    DQ fkm(const Eigen::VectorXd& q) const override;
+    DQ fkm(const Eigen::VectorXd&, const int& to_chain) const override;
+    Eigen::MatrixXd pose_jacobian(const Eigen::VectorXd& q, const int& to_ith_chain) const override;
+    Eigen::MatrixXd pose_jacobian(const Eigen::VectorXd& q) const override;
 };
 
 }

@@ -56,8 +56,8 @@ protected:
     double damping_;
 
     bool system_reached_stable_region_;
-    VectorXd last_control_signal_;
-    VectorXd last_error_signal_;
+    Eigen::VectorXd last_control_signal_;
+    Eigen::VectorXd last_error_signal_;
 
     double stability_threshold_;
     int stability_counter_;
@@ -70,11 +70,11 @@ public:
 
     ControlObjective get_control_objective() const;
 
-    MatrixXd get_jacobian(const VectorXd& q) const;
+    Eigen::MatrixXd get_jacobian(const Eigen::VectorXd& q) const;
 
-    VectorXd get_task_variable(const VectorXd& q) const;
+    Eigen::VectorXd get_task_variable(const Eigen::VectorXd& q) const;
 
-    VectorXd get_last_error_signal() const;
+    Eigen::VectorXd get_last_error_signal() const;
 
     bool is_set() const;
 
@@ -98,9 +98,9 @@ public:
 
     //Virtual
     virtual ~DQ_KinematicController()=default;
-    virtual VectorXd compute_setpoint_control_signal(const VectorXd& q, const VectorXd& task_reference)=0;
-    virtual VectorXd compute_tracking_control_signal(const VectorXd& q, const VectorXd& task_reference, const VectorXd& feed_forward)=0;
-    virtual void verify_stability(const VectorXd& task_error);
+    virtual Eigen::VectorXd compute_setpoint_control_signal(const Eigen::VectorXd& q, const Eigen::VectorXd& task_reference)=0;
+    virtual Eigen::VectorXd compute_tracking_control_signal(const Eigen::VectorXd& q, const Eigen::VectorXd& task_reference, const Eigen::VectorXd& feed_forward)=0;
+    virtual void verify_stability(const Eigen::VectorXd& task_error);
 
 };
 

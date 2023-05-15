@@ -23,6 +23,8 @@ Contributors:
 #include <dqrobotics/robot_control/DQ_PseudoinverseController.h>
 #include <dqrobotics/utils/DQ_LinearAlgebra.h>
 
+using namespace Eigen;
+
 namespace DQ_robotics
 {
 

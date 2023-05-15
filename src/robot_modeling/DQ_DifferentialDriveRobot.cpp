@@ -22,6 +22,8 @@ Contributors:
 
 #include<dqrobotics/robot_modeling/DQ_DifferentialDriveRobot.h>
 
+using namespace Eigen;
+
 namespace DQ_robotics
 {
 

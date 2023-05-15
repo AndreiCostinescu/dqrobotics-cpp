@@ -37,8 +37,8 @@ public:
 
     DQ_PseudoinverseController(DQ_Kinematics* robot);
 
-    VectorXd compute_setpoint_control_signal(const VectorXd& q, const VectorXd& task_reference);
-    VectorXd compute_tracking_control_signal(const VectorXd& q, const VectorXd& task_reference, const VectorXd& feed_forward);
+    Eigen::VectorXd compute_setpoint_control_signal(const Eigen::VectorXd& q, const Eigen::VectorXd& task_reference);
+    Eigen::VectorXd compute_tracking_control_signal(const Eigen::VectorXd& q, const Eigen::VectorXd& task_reference, const Eigen::VectorXd& feed_forward);
 };
 
 }

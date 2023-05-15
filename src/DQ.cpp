@@ -28,6 +28,8 @@ Contributors:
 #include <vector>
 #include <cmath>
 
+using namespace Eigen;
+
 namespace DQ_robotics{
 
 //To comply with MATLAB

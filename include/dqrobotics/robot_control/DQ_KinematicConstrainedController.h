@@ -27,26 +27,24 @@ Contributors:
 
 #include <dqrobotics/robot_control/DQ_KinematicController.h>
 
-using namespace Eigen;
-
 namespace DQ_robotics
 {
 
 class DQ_KinematicConstrainedController: public DQ_KinematicController
 {
 protected:
-    MatrixXd equality_constraint_matrix_;
-    VectorXd equality_constraint_vector_;
-    MatrixXd inequality_constraint_matrix_;
-    VectorXd inequality_constraint_vector_;
+    Eigen::MatrixXd equality_constraint_matrix_;
+    Eigen::VectorXd equality_constraint_vector_;
+    Eigen::MatrixXd inequality_constraint_matrix_;
+    Eigen::VectorXd inequality_constraint_vector_;
 
     DQ_KinematicConstrainedController(DQ_Kinematics* robot);
 public:
     //Remove default constructor
     DQ_KinematicConstrainedController()=delete;
 
-    virtual void set_equality_constraint(const MatrixXd& B, const VectorXd& b);
-    virtual void set_inequality_constraint(const MatrixXd& B, const VectorXd& b);
+    virtual void set_equality_constraint(const Eigen::MatrixXd& B, const Eigen::VectorXd& b);
+    virtual void set_inequality_constraint(const Eigen::MatrixXd& B, const Eigen::VectorXd& b);
 
 };
 

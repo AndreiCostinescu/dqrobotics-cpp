@@ -29,6 +29,8 @@ Contributors:
 #include<dqrobotics/robot_modeling/DQ_SerialManipulatorDH.h>
 #include<memory>
 
+using namespace Eigen;
+
 namespace DQ_robotics
 {
 

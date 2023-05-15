@@ -29,12 +29,10 @@ Contributors:
 #include <eigen3/Eigen/Dense>
 #endif
 
-using namespace Eigen;
-
 namespace DQ_robotics
 {
 
-MatrixXd pinv(const MatrixXd& matrix);
+    Eigen::MatrixXd pinv(const Eigen::MatrixXd& matrix);
 
 }
 

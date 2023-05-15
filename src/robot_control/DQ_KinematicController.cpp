@@ -24,6 +24,8 @@ Contributors:
 #include <stdexcept>
 #include <dqrobotics/utils/DQ_Geometry.h>
 
+using namespace Eigen;
+
 namespace DQ_robotics
 {
 

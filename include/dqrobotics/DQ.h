@@ -41,7 +41,6 @@ Contributors:
 #endif
 
 #include <iostream>
-using namespace Eigen;
 
 namespace DQ_robotics{
 
@@ -50,12 +49,12 @@ class DQ{
 
     //Private methods
 private:
-    VectorXd q_() const;
+    Eigen::VectorXd q_() const;
     double q_(const int a) const;
 
     //Attributes
 public:
-    Matrix<double,8,1> q;
+    Eigen::Matrix<double,8,1> q;
 
     //Static Methods
 public:
@@ -68,7 +67,7 @@ public:
 
     //Methods
 public:
-    DQ(const VectorXd& v);
+    DQ(const Eigen::VectorXd& v);
 
     DQ(const double& q0=0.0, const double& q1=0.0, const double& q2=0.0, const double& q3=0.0, const double& q4=0.0, const double& q5=0.0, const double& q6=0.0, const double& q7=0.0);
 
@@ -106,23 +105,23 @@ public:
 
     DQ pinv() const;
 
-    Matrix4d hamiplus4() const;
+    Eigen::Matrix4d hamiplus4() const;
 
-    Matrix4d haminus4() const;
+    Eigen::Matrix4d haminus4() const;
 
-    Matrix<double,8,8> hamiplus8() const;
+    Eigen::Matrix<double,8,8> hamiplus8() const;
 
-    Matrix<double,8,8> haminus8() const;
+    Eigen::Matrix<double,8,8> haminus8() const;
 
-    Vector3d vec3() const;
+    Eigen::Vector3d vec3() const;
 
-    Vector4d vec4() const;
+    Eigen::Vector4d vec4() const;
 
-    Matrix<double,6,1> vec6() const;
+    Eigen::Matrix<double,6,1> vec6() const;
 
-    Matrix<double,8,1> vec8() const;
+    Eigen::Matrix<double,8,1> vec8() const;
 
-    Matrix<double,8,8> generalized_jacobian() const;
+    Eigen::Matrix<double,8,8> generalized_jacobian() const;
 
     DQ normalize() const;
 
@@ -200,8 +199,8 @@ bool operator!=(const double& scalar, const DQ& dq);
 std::ostream& operator<<(std::ostream &os, const DQ& dq);
 
 //Constants
-Matrix<double,8,8> C8();
-Matrix<double,4,4> C4();
+Eigen::Matrix<double,8,8> C8();
+Eigen::Matrix<double,4,4> C4();
 
 const DQ E_ = DQ(0,0,0,0,1,0,0,0);
 const DQ i_ = DQ(0,1,0,0,0,0,0,0);
@@ -246,25 +245,25 @@ DQ pinv(const DQ& dq);
 
 DQ dec_mult(const DQ& dq1, const DQ& dq2);
 
-Matrix4d hamiplus4(const DQ& dq);
+Eigen::Matrix4d hamiplus4(const DQ& dq);
 
-Matrix4d haminus4(const DQ& dq);
+Eigen::Matrix4d haminus4(const DQ& dq);
 
-Matrix<double,8,8> hamiplus8(const DQ& dq);
+Eigen::Matrix<double,8,8> hamiplus8(const DQ& dq);
 
-Matrix<double,8,8> haminus8(const DQ& dq);
+Eigen::Matrix<double,8,8> haminus8(const DQ& dq);
 
-Matrix<double,8,8> generalized_jacobian(const DQ& dq);
+Eigen::Matrix<double,8,8> generalized_jacobian(const DQ& dq);
 
-Vector3d vec3(const DQ& dq);
+Eigen::Vector3d vec3(const DQ& dq);
 
-Vector4d vec4(const DQ& dq);
+Eigen::Vector4d vec4(const DQ& dq);
 
-Matrix<double,6,1> vec6(const DQ& dq);
+Eigen::Matrix<double,6,1> vec6(const DQ& dq);
 
-Matrix<double,8,1> vec8(const DQ& dq);
+Eigen::Matrix<double,8,1> vec8(const DQ& dq);
 
-Matrix4d crossmatrix4(const DQ& dq);
+Eigen::Matrix4d crossmatrix4(const DQ& dq);
 
 DQ normalize (const DQ& dq);
 

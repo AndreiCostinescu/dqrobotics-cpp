@@ -32,8 +32,6 @@ Contributors:
 #include <limits>       //Used in pseudoinverse()
 #include <string>
 
-using namespace Eigen;
-
 namespace DQ_robotics
 {
 
@@ -45,7 +43,7 @@ class DQ_kinematics{
 private:
 
     //Para uso nas funções Jacobian...
-    MatrixXd    dh_matrix_;
+    Eigen::MatrixXd    dh_matrix_;
     std::string dh_matrix_convention_;
 
     DQ curr_base_;
@@ -55,7 +53,7 @@ private:
 public:
     // Class constructors: Creates a Dual Quaternion as a DQ object.
 
-    DQ_kinematics(const MatrixXd& dh_matrix, const std::string& convention = "standard" );
+    DQ_kinematics(const Eigen::MatrixXd& dh_matrix, const std::string& convention = "standard" );
 
     DQ_kinematics(){};
 
@@ -69,20 +67,20 @@ public:
         * For displaying the results of methods, the DISPLAY and MATRIX functions of DQ class can be used
         */
 
-    MatrixXd getDHMatrix();
+    Eigen::MatrixXd getDHMatrix();
 
     int n_links() const;
 
-    VectorXd theta() const;
+    Eigen::VectorXd theta() const;
 
-    VectorXd d() const;
+    Eigen::VectorXd d() const;
 
-    VectorXd a() const;
+    Eigen::VectorXd a() const;
 
-    VectorXd alpha() const;
+    Eigen::VectorXd alpha() const;
 
-    VectorXd dummy() const;
-    void set_dummy( const VectorXd& dummy_vector);
+    Eigen::VectorXd dummy() const;
+    void set_dummy( const Eigen::VectorXd& dummy_vector);
 
     int n_dummy() const;
 
@@ -94,42 +92,42 @@ public:
     DQ effector() const;
     DQ set_effector( const DQ& new_effector);
 
-    DQ raw_fkm( const VectorXd& theta_vec) const;
-    DQ raw_fkm( const VectorXd& theta_vec, const int& ith) const;
+    DQ raw_fkm( const Eigen::VectorXd& theta_vec) const;
+    DQ raw_fkm( const Eigen::VectorXd& theta_vec, const int& ith) const;
 
-    DQ fkm( const VectorXd& theta_vec) const;
-    DQ fkm( const VectorXd& theta_vec, const int& ith) const;
+    DQ fkm( const Eigen::VectorXd& theta_vec) const;
+    DQ fkm( const Eigen::VectorXd& theta_vec, const int& ith) const;
 
     DQ dh2dq( const double& theta_ang, const int& link_i) const;
 
-    DQ get_z( const VectorXd& q) const;
+    DQ get_z( const Eigen::VectorXd& q) const;
 
-    MatrixXd pose_jacobian           ( const VectorXd& theta_vec, const int& to_link) const;
-    MatrixXd pose_jacobian           ( const VectorXd& theta_vec) const;
-    MatrixXd raw_pose_jacobian       ( const VectorXd& theta_vec, const int& to_link) const;
-    MatrixXd pose_jacobian_derivative( const VectorXd& theta_vec, const VectorXd& theta_vec_dot, const int& to_link) const;
+    Eigen::MatrixXd pose_jacobian           ( const Eigen::VectorXd& theta_vec, const int& to_link) const;
+    Eigen::MatrixXd pose_jacobian           ( const Eigen::VectorXd& theta_vec) const;
+    Eigen::MatrixXd raw_pose_jacobian       ( const Eigen::VectorXd& theta_vec, const int& to_link) const;
+    Eigen::MatrixXd pose_jacobian_derivative( const Eigen::VectorXd& theta_vec, const Eigen::VectorXd& theta_vec_dot, const int& to_link) const;
 
     ///DEPRECATED SIGNATURES
-    DEPRECATED MatrixXd analyticalJacobian( const VectorXd& theta_vec) const;
-    DEPRECATED MatrixXd jacobian(           const VectorXd& theta_vec, const int& to_link) const;
-    DEPRECATED MatrixXd jacobian(           const VectorXd& theta_vec) const;
-    DEPRECATED MatrixXd raw_jacobian(       const VectorXd& theta_vec, const int& to_link) const;
-    DEPRECATED MatrixXd jacobianDerivative( const VectorXd& theta_vec, const VectorXd& theta_vec_dot, const int& to_link) const;
+    DEPRECATED Eigen::MatrixXd analyticalJacobian( const Eigen::VectorXd& theta_vec) const;
+    DEPRECATED Eigen::MatrixXd jacobian(           const Eigen::VectorXd& theta_vec, const int& to_link) const;
+    DEPRECATED Eigen::MatrixXd jacobian(           const Eigen::VectorXd& theta_vec) const;
+    DEPRECATED Eigen::MatrixXd raw_jacobian(       const Eigen::VectorXd& theta_vec, const int& to_link) const;
+    DEPRECATED Eigen::MatrixXd jacobianDerivative( const Eigen::VectorXd& theta_vec, const Eigen::VectorXd& theta_vec_dot, const int& to_link) const;
     DEPRECATED int links() const;
 };
 
 
 int n_links( const DQ_kinematics& dq_kin);
 
-VectorXd theta( const DQ_kinematics& dq_kin);
+Eigen::VectorXd theta( const DQ_kinematics& dq_kin);
 
-VectorXd d( const DQ_kinematics& dq_kin);
+Eigen::VectorXd d( const DQ_kinematics& dq_kin);
 
-VectorXd a( const DQ_kinematics& dq_kin);
+Eigen::VectorXd a( const DQ_kinematics& dq_kin);
 
-VectorXd alpha( const DQ_kinematics& dq_kin);
+Eigen::VectorXd alpha( const DQ_kinematics& dq_kin);
 
-VectorXd dummy( const DQ_kinematics& dq_kin);
+Eigen::VectorXd dummy( const DQ_kinematics& dq_kin);
 
 int n_dummy( const DQ_kinematics& dq_kin);
 
@@ -143,60 +141,60 @@ DQ set_base( DQ_kinematics& dq_kin, const DQ& new_base);
 
 DQ set_effector( DQ_kinematics& dq_kin, const DQ& new_effector);
 
-DQ raw_fkm( const DQ_kinematics& dq_kin, const VectorXd& theta_vec);
-DQ raw_fkm( const DQ_kinematics& dq_kin, const VectorXd& theta_vec, const int& ith);
+DQ raw_fkm( const DQ_kinematics& dq_kin, const Eigen::VectorXd& theta_vec);
+DQ raw_fkm( const DQ_kinematics& dq_kin, const Eigen::VectorXd& theta_vec, const int& ith);
 
 DQ dh2dq( const DQ_kinematics& dq_kin, const double& theta_ang, const int& link_i);
 
-DQ get_z( const DQ_kinematics& dq_kin, const VectorXd& q);
+DQ get_z( const DQ_kinematics& dq_kin, const Eigen::VectorXd& q);
 
-MatrixXd pose_jacobian(            const DQ_kinematics& dq_kin,   const VectorXd& theta_vec );
-MatrixXd pose_jacobian(            const DQ_kinematics& dq_kin,   const VectorXd& theta_vec, const int &to_link);
-MatrixXd raw_pose_jacobian(        const DQ_kinematics& dq_kin,   const VectorXd& theta_vec, const int& to_link);
-MatrixXd pose_jacobian_derivative( const DQ_kinematics& dq_kin,   const VectorXd& theta_vec, const VectorXd& theta_vec_dot, const int& to_link);
+Eigen::MatrixXd pose_jacobian(            const DQ_kinematics& dq_kin,   const Eigen::VectorXd& theta_vec );
+Eigen::MatrixXd pose_jacobian(            const DQ_kinematics& dq_kin,   const Eigen::VectorXd& theta_vec, const int &to_link);
+Eigen::MatrixXd raw_pose_jacobian(        const DQ_kinematics& dq_kin,   const Eigen::VectorXd& theta_vec, const int& to_link);
+Eigen::MatrixXd pose_jacobian_derivative( const DQ_kinematics& dq_kin,   const Eigen::VectorXd& theta_vec, const Eigen::VectorXd& theta_vec_dot, const int& to_link);
 
-MatrixXd rotation_jacobian   ( const MatrixXd& pose_jacobian);
+Eigen::MatrixXd rotation_jacobian   ( const Eigen::MatrixXd& pose_jacobian);
 
-MatrixXd translation_jacobian( const MatrixXd& pose_jacobian, const DQ& x);
+Eigen::MatrixXd translation_jacobian( const Eigen::MatrixXd& pose_jacobian, const DQ& x);
 
-MatrixXd line_jacobian       ( const MatrixXd& pose_jacobian, const DQ& pose, const DQ& line_direction);
+Eigen::MatrixXd line_jacobian       ( const Eigen::MatrixXd& pose_jacobian, const DQ& pose, const DQ& line_direction);
 
-MatrixXd plane_jacobian      ( const MatrixXd& pose_jacobian, const DQ& pose, const DQ& plane_normal);
+Eigen::MatrixXd plane_jacobian      ( const Eigen::MatrixXd& pose_jacobian, const DQ& pose, const DQ& plane_normal);
 
-MatrixXd point_to_point_distance_jacobian(const MatrixXd& translation_jacobian, const DQ& robot_point_translation, const DQ& workspace_point_translation);
+Eigen::MatrixXd point_to_point_distance_jacobian(const Eigen::MatrixXd& translation_jacobian, const DQ& robot_point_translation, const DQ& workspace_point_translation);
 double   point_to_point_residual         (const DQ& robot_point_translation, const DQ& workspace_point_translation, const DQ& workspace_point_translation_derivative);
 
-MatrixXd point_to_line_distance_jacobian (const MatrixXd& translation_jacobian, const DQ& robot_point_translation, const DQ& workspace_line);
+Eigen::MatrixXd point_to_line_distance_jacobian (const Eigen::MatrixXd& translation_jacobian, const DQ& robot_point_translation, const DQ& workspace_line);
 double   point_to_line_residual          (const DQ& robot_point_translation, const DQ& workspace_line, const DQ& workspace_line_derivative);
 
-MatrixXd point_to_plane_distance_jacobian(const MatrixXd& translation_jacobian, const DQ& robot_point_translation, const DQ& workspace_plane);
+Eigen::MatrixXd point_to_plane_distance_jacobian(const Eigen::MatrixXd& translation_jacobian, const DQ& robot_point_translation, const DQ& workspace_plane);
 double   point_to_plane_residual         (const DQ& translation, const DQ& plane_derivative);
 
-MatrixXd line_to_point_distance_jacobian (const MatrixXd& line_jacobian, const DQ& robot_line, const DQ& workspace_point_translation);
+Eigen::MatrixXd line_to_point_distance_jacobian (const Eigen::MatrixXd& line_jacobian, const DQ& robot_line, const DQ& workspace_point_translation);
 double   line_to_point_residual          (const DQ& robot_line, const DQ& workspace_point_translation, const DQ& workspace_point_translation_derivative);
 
-MatrixXd line_to_line_distance_jacobian  (const MatrixXd& line_jacobian, const DQ& robot_line, const DQ& workspace_line);
+Eigen::MatrixXd line_to_line_distance_jacobian  (const Eigen::MatrixXd& line_jacobian, const DQ& robot_line, const DQ& workspace_line);
 double   line_to_point_residual          (const DQ& robot_line, const DQ& workspace_line, const DQ& workspace_line_derivative);
 
-MatrixXd plane_to_point_distance_jacobian(const MatrixXd& plane_jacobian, const DQ& robot_plane, const DQ& workspace_point);
+Eigen::MatrixXd plane_to_point_distance_jacobian(const Eigen::MatrixXd& plane_jacobian, const DQ& robot_plane, const DQ& workspace_point);
 double   plane_to_point_residual         (const DQ& robot_plane, const DQ& workspace_point_derivative);
 
-//MatrixXd distance_jacobian( const DQ_kinematics& dq_kin, const MatrixXd& param_jacobian, const DQ& x);
+//Eigen::MatrixXd distance_jacobian( const DQ_kinematics& dq_kin, const Eigen::MatrixXd& param_jacobian, const DQ& x);
 
-MatrixXd pseudo_inverse( const MatrixXd& matrix);
+Eigen::MatrixXd pseudo_inverse( const Eigen::MatrixXd& matrix);
 
 ///DEPRECATED SIGNATURES
-DEPRECATED MatrixXd analyticalJacobian( const DQ_kinematics& dq_kin,   const VectorXd& theta_vec);
-DEPRECATED MatrixXd jacobian(           const DQ_kinematics& dq_kin,   const VectorXd& theta_vec,  const int &to_link);
-DEPRECATED MatrixXd jacobian(           const DQ_kinematics& dq_kin,   const VectorXd& theta_vec); //The MATLAB syntax, kept for legacy reasons.
-DEPRECATED MatrixXd jacobianDerivative( const DQ_kinematics& dq_kin,   const VectorXd& theta_vec, const VectorXd& theta_vec_dot, const int& to_link);
-DEPRECATED MatrixXd raw_jacobian(       const DQ_kinematics& dq_kin,   const VectorXd& theta_vec, const int& to_link);
-DEPRECATED MatrixXd rotationJacobian(   const MatrixXd& pose_jacobian);
-DEPRECATED MatrixXd translationJacobian(const MatrixXd& pose_jacobian, const DQ& x);
-DEPRECATED MatrixXd jacobp(             const MatrixXd& pose_jacobian, const DQ& x); //The MATLAB syntax, kept for legacy reasons.
-//DEPRECATED MatrixXd distanceJacobian(   const MatrixXd& param_jacobian, const DQ& x);
-//DEPRECATED MatrixXd jacobd(             const MatrixXd& param_jacobian, const DQ& x);
-DEPRECATED MatrixXd pseudoInverse(      const MatrixXd& matrix);
+DEPRECATED Eigen::MatrixXd analyticalJacobian( const DQ_kinematics& dq_kin,   const Eigen::VectorXd& theta_vec);
+DEPRECATED Eigen::MatrixXd jacobian(           const DQ_kinematics& dq_kin,   const Eigen::VectorXd& theta_vec,  const int &to_link);
+DEPRECATED Eigen::MatrixXd jacobian(           const DQ_kinematics& dq_kin,   const Eigen::VectorXd& theta_vec); //The MATLAB syntax, kept for legacy reasons.
+DEPRECATED Eigen::MatrixXd jacobianDerivative( const DQ_kinematics& dq_kin,   const Eigen::VectorXd& theta_vec, const Eigen::VectorXd& theta_vec_dot, const int& to_link);
+DEPRECATED Eigen::MatrixXd raw_jacobian(       const DQ_kinematics& dq_kin,   const Eigen::VectorXd& theta_vec, const int& to_link);
+DEPRECATED Eigen::MatrixXd rotationJacobian(   const Eigen::MatrixXd& pose_jacobian);
+DEPRECATED Eigen::MatrixXd translationJacobian(const Eigen::MatrixXd& pose_jacobian, const DQ& x);
+DEPRECATED Eigen::MatrixXd jacobp(             const Eigen::MatrixXd& pose_jacobian, const DQ& x); //The MATLAB syntax, kept for legacy reasons.
+//DEPRECATED Eigen::MatrixXd distanceJacobian(   const Eigen::MatrixXd& param_jacobian, const DQ& x);
+//DEPRECATED Eigen::MatrixXd jacobd(             const Eigen::MatrixXd& param_jacobian, const DQ& x);
+DEPRECATED Eigen::MatrixXd pseudoInverse(      const Eigen::MatrixXd& matrix);
 DEPRECATED int      links(              const DQ_kinematics& dq_kin);
 
 }//Namespace DQRobotics

@@ -12,14 +12,12 @@ Schunk Robot DH Parameters
 #include<eigen3/Eigen/Dense>
 #include<cmath>
 
-using namespace Eigen;
-
 namespace DQ_robotics{
 
     DQ_kinematics SchunkKinematics()
     {
       const double pi2 = M_PI_2;
-	    Matrix<double,4,7> schunk_dh(4,7);
+        Eigen::Matrix<double,4,7> schunk_dh(4,7);
 	    schunk_dh << 0,     0,   0,     0,   0,      0,  0,
 	                 0.3,   0,   0.328, 0,   0.2765, 0,  0.1793,
 	                 0,     0,   0,     0,   0,      0,  0,

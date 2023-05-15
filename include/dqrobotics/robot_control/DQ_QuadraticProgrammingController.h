@@ -26,8 +26,6 @@ Contributors:
 #include<dqrobotics/robot_control/DQ_KinematicConstrainedController.h>
 #include<dqrobotics/solvers/DQ_QuadraticProgrammingSolver.h>
 
-using namespace Eigen;
-
 namespace DQ_robotics
 {
 class DQ_QuadraticProgrammingController:public DQ_KinematicConstrainedController
@@ -41,11 +39,11 @@ public:
     //Remove default constructor
     DQ_QuadraticProgrammingController()=delete;
 
-    virtual MatrixXd compute_objective_function_symmetric_matrix(const MatrixXd& J, const VectorXd& task_error)=0;
-    virtual VectorXd compute_objective_function_linear_component(const MatrixXd& J, const VectorXd& task_error)=0;
+    virtual Eigen::MatrixXd compute_objective_function_symmetric_matrix(const Eigen::MatrixXd& J, const Eigen::VectorXd& task_error)=0;
+    virtual Eigen::VectorXd compute_objective_function_linear_component(const Eigen::MatrixXd& J, const Eigen::VectorXd& task_error)=0;
 
-    virtual VectorXd compute_setpoint_control_signal(const VectorXd&q, const VectorXd& task_reference) override;
-    virtual VectorXd compute_tracking_control_signal(const VectorXd&q, const VectorXd& task_reference, const VectorXd& feed_forward) override;
+    virtual Eigen::VectorXd compute_setpoint_control_signal(const Eigen::VectorXd&q, const Eigen::VectorXd& task_reference) override;
+    virtual Eigen::VectorXd compute_tracking_control_signal(const Eigen::VectorXd&q, const Eigen::VectorXd& task_reference, const Eigen::VectorXd& feed_forward) override;
 
 };
 }

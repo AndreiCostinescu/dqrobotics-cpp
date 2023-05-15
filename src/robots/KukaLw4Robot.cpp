@@ -26,6 +26,8 @@ Contributors:
 #include<dqrobotics/robots/KukaLw4Robot.h>
 #include<dqrobotics/utils/DQ_Constants.h>
 
+using namespace Eigen;
+
 namespace DQ_robotics
 {
 

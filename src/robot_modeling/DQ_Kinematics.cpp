@@ -23,6 +23,8 @@ Contributors:
 #include<dqrobotics/robot_modeling/DQ_Kinematics.h>
 #include<dqrobotics/utils/DQ_Constants.h>
 
+using namespace Eigen;
+
 namespace DQ_robotics
 {
 

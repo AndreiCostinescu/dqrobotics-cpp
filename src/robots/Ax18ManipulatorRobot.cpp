@@ -22,6 +22,8 @@ Contributors:
 #include<dqrobotics/robots/Ax18ManipulatorRobot.h>
 #include<dqrobotics/utils/DQ_Constants.h>
 
+using namespace Eigen;
+
 namespace DQ_robotics
 {
 

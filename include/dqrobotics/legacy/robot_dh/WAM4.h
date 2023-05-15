@@ -10,15 +10,13 @@ WAM Robot DH Parameters
 #include<eigen3/Eigen/Dense>
 #include<cmath>
 
-using namespace Eigen;
-
 namespace DQ_robotics{
 
     DQ_kinematics Wam4Kinematics()
     {
         const double pi2 = M_PI_2;
 
-	    Matrix<double,4,4> wam4_dh(4,4);
+        Eigen::Matrix<double,4,4> wam4_dh(4,4);
 	    wam4_dh << 0,    0,    0,      0,      
                   0,    0,    0.55,   0,
                   0,    0,    0.045, -0.045,

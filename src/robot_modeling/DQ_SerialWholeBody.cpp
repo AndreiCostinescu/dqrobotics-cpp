@@ -24,6 +24,8 @@ Contributors:
 #include<dqrobotics/robot_modeling/DQ_SerialManipulator.h>
 #include<vector>
 
+using namespace Eigen;
+
 namespace DQ_robotics
 {
 

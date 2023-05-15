@@ -26,6 +26,8 @@ Contributors:
 #include <stdexcept>    //For range_error
 #include <string>
 
+using namespace Eigen;
+
 namespace DQ_robotics
 {
 

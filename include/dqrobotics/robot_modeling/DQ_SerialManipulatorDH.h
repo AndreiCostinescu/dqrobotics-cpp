@@ -42,12 +42,12 @@ public:
     enum JOINT_TYPES{ JOINT_ROTATIONAL=0, JOINT_PRISMATIC };
 
     DQ_SerialManipulatorDH()=delete;
-    DQ_SerialManipulatorDH(const MatrixXd& dh_matrix, const std::string& convention = "standard");
+    DQ_SerialManipulatorDH(const Eigen::MatrixXd& dh_matrix, const std::string& convention = "standard");
 
-    VectorXd type() const;
+    Eigen::VectorXd type() const;
 
     //Override from DQ_SerialManipulator
-    MatrixXd raw_pose_jacobian(const VectorXd& q_vec, const int& to_ith_link) const override;
+    Eigen::MatrixXd raw_pose_jacobian(const Eigen::VectorXd& q_vec, const int& to_ith_link) const override;
 };
 
 }//Namespace DQRobotics

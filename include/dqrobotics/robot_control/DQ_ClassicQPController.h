@@ -37,8 +37,8 @@ public:
     //Only observers, no ownership
     DQ_ClassicQPController(DQ_Kinematics* robot, DQ_QuadraticProgrammingSolver* solver);
 
-    MatrixXd compute_objective_function_symmetric_matrix(const MatrixXd& J, const VectorXd&) override;
-    VectorXd compute_objective_function_linear_component(const MatrixXd& J, const VectorXd& task_error) override;
+    Eigen::MatrixXd compute_objective_function_symmetric_matrix(const Eigen::MatrixXd& J, const Eigen::VectorXd&) override;
+    Eigen::VectorXd compute_objective_function_linear_component(const Eigen::MatrixXd& J, const Eigen::VectorXd& task_error) override;
 };
 
 }

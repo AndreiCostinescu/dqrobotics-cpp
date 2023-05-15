@@ -22,6 +22,8 @@ Contributors:
 
 #include <dqrobotics/robot_control/DQ_KinematicConstrainedController.h>
 
+using namespace Eigen;
+
 namespace DQ_robotics
 {
 

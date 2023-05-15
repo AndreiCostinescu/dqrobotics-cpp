@@ -22,6 +22,8 @@ Contributors:
 #include<dqrobotics/robots/ComauSmartSixRobot.h>
 #include<dqrobotics/utils/DQ_Constants.h>
 
+using namespace Eigen;
+
 namespace DQ_robotics
 {
 

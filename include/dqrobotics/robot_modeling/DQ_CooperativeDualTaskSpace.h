@@ -41,17 +41,17 @@ public:
 
     DQ_CooperativeDualTaskSpace(DQ_Kinematics* robot1, DQ_Kinematics* robot2);
 
-    DQ pose1(const VectorXd& theta);
-    DQ pose2(const VectorXd& theta);
+    DQ pose1(const Eigen::VectorXd& theta);
+    DQ pose2(const Eigen::VectorXd& theta);
 
-    MatrixXd pose_jacobian1(const VectorXd& theta);
-    MatrixXd pose_jacobian2(const VectorXd& theta);
+    Eigen::MatrixXd pose_jacobian1(const Eigen::VectorXd& theta);
+    Eigen::MatrixXd pose_jacobian2(const Eigen::VectorXd& theta);
 
-    DQ relative_pose(const VectorXd& theta);
-    DQ absolute_pose(const VectorXd& theta);
+    DQ relative_pose(const Eigen::VectorXd& theta);
+    DQ absolute_pose(const Eigen::VectorXd& theta);
 
-    MatrixXd relative_pose_jacobian(const VectorXd& theta);
-    MatrixXd absolute_pose_jacobian(const VectorXd& theta);
+    Eigen::MatrixXd relative_pose_jacobian(const Eigen::VectorXd& theta);
+    Eigen::MatrixXd absolute_pose_jacobian(const Eigen::VectorXd& theta);
 
 };
 

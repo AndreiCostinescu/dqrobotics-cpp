@@ -23,6 +23,8 @@ Contributors:
 #include<dqrobotics/robots/BarrettWamArmRobot.h>
 #include<dqrobotics/utils/DQ_Constants.h>
 
+using namespace Eigen;
+
 namespace DQ_robotics
 {
 

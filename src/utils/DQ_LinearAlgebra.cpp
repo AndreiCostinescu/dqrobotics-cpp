@@ -22,6 +22,8 @@ Contributors:
 
 #include<dqrobotics/utils/DQ_LinearAlgebra.h>
 
+using namespace Eigen;
+
 namespace DQ_robotics
 {
 
