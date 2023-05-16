@@ -41,6 +41,7 @@ ADD_LIBRARY(dqrobotics SHARED
     src/robot_modeling/DQ_Kinematics.cpp
     src/robot_modeling/DQ_SerialManipulator.cpp
     src/robot_modeling/DQ_SerialManipulatorDH.cpp
+    src/robot_modeling/DQ_SerialManipulatorMDH.cpp
     src/robot_modeling/DQ_MobileBase.cpp
     src/robot_modeling/DQ_HolonomicBase.cpp
     src/robot_modeling/DQ_DifferentialDriveRobot.cpp
@@ -56,6 +57,7 @@ ADD_LIBRARY(dqrobotics SHARED
     src/robots/Ax18ManipulatorRobot.cpp
     src/robots/BarrettWamArmRobot.cpp
     src/robots/ComauSmartSixRobot.cpp
+    src/robots/FrankaEmikaPandaRobot.cpp
     src/robots/KukaLw4Robot.cpp
     src/robots/KukaYoubotRobot.cpp
     )
@@ -90,6 +92,7 @@ INSTALL(FILES
     include/dqrobotics/robot_modeling/DQ_Kinematics.h
     include/dqrobotics/robot_modeling/DQ_SerialManipulator.h
     include/dqrobotics/robot_modeling/DQ_SerialManipulatorDH.h
+    include/dqrobotics/robot_modeling/DQ_SerialManipulatorMDH.h
     include/dqrobotics/robot_modeling/DQ_MobileBase.h
     include/dqrobotics/robot_modeling/DQ_HolonomicBase.h
     include/dqrobotics/robot_modeling/DQ_DifferentialDriveRobot.h
@@ -111,6 +114,7 @@ INSTALL(FILES
     include/dqrobotics/robots/Ax18ManipulatorRobot.h
     include/dqrobotics/robots/BarrettWamArmRobot.h
     include/dqrobotics/robots/ComauSmartSixRobot.h
+    include/dqrobotics/robots/FrankaEmikaPandaRobot.h
     include/dqrobotics/robots/KukaLw4Robot.h
     include/dqrobotics/robots/KukaYoubotRobot.h
     DESTINATION "include/dqrobotics/robots")
@@ -148,6 +152,7 @@ INSTALL(FILES
 INSTALL(FILES 
     src/robot_modeling/DQ_SerialManipulator.cpp
     src/robot_modeling/DQ_SerialManipulatorDH.cpp
+    src/robot_modeling/DQ_SerialManipulatorMDH.cpp
     src/robot_modeling/DQ_CooperativeDualTaskSpace.cpp
     src/robot_modeling/DQ_Kinematics.cpp
     src/robot_modeling/DQ_MobileBase.cpp
@@ -161,6 +166,7 @@ INSTALL(FILES
     src/robots/Ax18ManipulatorRobot.cpp
     src/robots/BarrettWamArmRobot.cpp
     src/robots/ComauSmartSixRobot.cpp
+    src/robots/FrankaEmikaPandaRobot.cpp
     src/robots/KukaLw4Robot.cpp
     src/robots/KukaYoubotRobot.cpp
     DESTINATION "src/dqrobotics/robots")

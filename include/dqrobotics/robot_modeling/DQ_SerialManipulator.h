@@ -65,10 +65,10 @@ public:
     DQ set_effector(const DQ& new_effector);
 
     DQ raw_fkm(const Eigen::VectorXd& q_vec) const;
-    DQ raw_fkm(const Eigen::VectorXd& q_vec, const int& to_ith_link) const;
+    virtual DQ raw_fkm(const Eigen::VectorXd& q_vec, const int& to_ith_link) const;
 
     DQ fkm(const Eigen::VectorXd& q_vec) const override; //Override from DQ_Kinematics
-    DQ fkm(const Eigen::VectorXd& q_vec, const int& to_ith_link) const;
+    DQ fkm(const Eigen::VectorXd& q_vec, const int& to_ith_link) const override;
 
     Eigen::MatrixXd raw_pose_jacobian(const Eigen::VectorXd& q_vec) const;
     virtual Eigen::MatrixXd raw_pose_jacobian(const Eigen::VectorXd& q_vec, const int& to_ith_link) const;
@@ -85,4 +85,4 @@ public:
 
 }//Namespace DQRobotics
 
-#endif // DQ_SerialManipulator_H_INCLUDED
+#endif // DQ_SerialManipulator_H
